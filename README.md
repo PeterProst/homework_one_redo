@@ -1,2 +1,2 @@
 # homework_one_redo
-This is the redo of my original page. Note that I jettisoned the original design and went with a new layout. 
+Many more updates to come on my homepage.Please run the build.py to generate page! 
