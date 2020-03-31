@@ -21,7 +21,7 @@ print('combined html successfully')
 
 #Write this into a brand new directory in the same file
 
-open('index.html', 'w+').write(combine_html)
+open('./docs/index.html', 'w+').write(combine_html)
 print('this finally happened')
 
 
@@ -40,7 +40,7 @@ print('combined html successfully')
 
 #Write this into a brand new directory in the same file
 
-open('experience.html', 'w+').write(combine_html)
+open('./docs/experience.html', 'w+').write(combine_html)
 print('this finally happened')
 
 
@@ -61,7 +61,7 @@ print('combined html successfully')
 
 #Write this into a brand new directory in the same file
 
-open('contact.html', 'w+').write(combine_html)
+open('./docs/contact.html', 'w+').write(combine_html)
 print('this finally happened')
 
 
