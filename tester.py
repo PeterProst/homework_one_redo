@@ -1,4 +1,4 @@
-
+#list of pages that are accessed via for loop
 pages = [
     {
         "filename" : "content/index.html",
