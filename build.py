@@ -1,4 +1,4 @@
-
+#list of pages that are accessed via for loop
 pages = [
     {
         "filename" : "content/index.html",
@@ -18,23 +18,42 @@ pages = [
 ]
 
 
+# def main():
+#     for page in pages:
+#         file_name = page['filename']
+#         output = page['output']
+#         title = page['title']
+#         template = open('./templates/base.html').read()
+#         index_content = open(file_name).read()
+#         finished_pages = template.replace("{{content}}", index_content)
+#         open(output, 'w+').write(finished_pages)
+        
+#         print('tested')
+
+
+
+
+def template_read():
+    template_read = open('./templates/base.html').read()
+    print('ready 1')
+
+def apply_template(page):
+    file_name = page['filename']
+    output = page['output']
+    title = page['title']
+    template = open('./templates/base.html').read() #<----template (top/bottom) read and put into template var
+    index_content = open(file_name).read() #<----opens the content files about/experience/contact and puts into var
+    finished_pages = template.replace("{{content}}", index_content) # <---does the actual replacement for each of the above on each loop
+    open(output, 'w+').write(finished_pages)
+    print('2')
+
 def main():
     for page in pages:
-        file_name = page['filename']
-        output = page['output']
-        title = page['title']
-        top_html = open('./templates/top.html').read()
-        bottom_html = open('./templates/bottom.html').read()
-        middle_html = open(file_name).read()
-        combine_html = top_html + middle_html + bottom_html
-        open(output, 'w+').write(combine_html)
+        template_read()
+        apply_template(page)
         
-        print('tested')
-
 
 main()
-
-
 
 
 
