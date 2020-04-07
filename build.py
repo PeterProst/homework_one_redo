@@ -5,19 +5,16 @@ pages = [
         "filename" : "content/index.html",
         "output" : "docs/index.html",
         "title" : "About Me",
-        "nav_link" : "-About",
     },
     {
         "filename" : "content/experience.html",
         "output" : "docs/experience.html",
         "title" : "My Experience",
-        "nav_link" : "-Experience",
     },
     {
         "filename" : "content/contact.html",
         "output" : "docs/contact.html",
         "title" : "Contact Page",
-        "nav_link" : "-Contact"
     },
     
 ]
@@ -36,11 +33,9 @@ def apply_template(page):
     file_name = page['filename']
     output = page['output']
     title = page['title']
-    nav_link = page['nav_link']
     template = template_read() #template (top/bottom) read and put into template var
     index_content = open(file_name).read() #opens the content files: about/experience/contact and puts into var
     content = template.replace("{{content}}", index_content) #does the actual replacement for each of the above on each loop 
-    content = content.replace("{{title}}", title)
     content = content.replace("{{title}}", title)
     writing_output(output,content)#writes to output file destination
     print('apply template ran')
