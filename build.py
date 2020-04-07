@@ -1,16 +1,3 @@
-#original function for reference
-# def main():
-#     for page in pages:
-#         file_name = page['filename']
-#         output = page['output']
-#         title = page['title']
-#         template = open('./templates/base.html').read()
-#         index_content = open(file_name).read()
-#         finished_pages = template.replace("{{content}}", index_content)
-#         open(output, 'w+').write(finished_pages)
-        
-#         print('tested')
-
 
 #list of pages that are accessed via for loop
 pages = [
@@ -33,45 +20,47 @@ pages = [
 ]
 
 
-#this function is currently useless :(
+#this opens and reads the base html
 def template_read():
     template_read = open('./templates/base.html').read()
-    print('ready 1')
+    print('template read ran')
     return template_read
     
+#changing title 
 # def title_change(page):
 #     file_name = page['filename']
 #     output = page['output']
 #     title = page['title']
 #     template = template_read() #template (top/bottom) read and put into template var
-#     index_content = open(file_name).read() #opens the content files about/experience/contact and puts into var
-#     content = template.replace("{{content}}", index_content) #does the actual replacement for each of the above on each loop 
-#     content1 = template.replace("{{title}}", index_content)
-#     writing_output(output,content, content1)#writes to output file destination
-#     print(3)      
-    
+#     index_content = open(file_name).read() #opens the content files: about/experience/contact and puts into var
+#     content = template.replace("{{title}}", index_content) #does the actual replacement for each of the above on each loop 
+#     writing_output(output,content)#writes to output file destination
+#     print('apply title ran')
+          
 
-#takes variables from libraries, opens the templates/content folders and writes to them
+
+#uses page variable to loop through when called to apply (missing) content to template
 def apply_template(page):
     file_name = page['filename']
     output = page['output']
     title = page['title']
     template = template_read() #template (top/bottom) read and put into template var
-    index_content = open(file_name).read() #opens the content files about/experience/contact and puts into var
+    index_content = open(file_name).read() #opens the content files: about/experience/contact and puts into var
     content = template.replace("{{content}}", index_content) #does the actual replacement for each of the above on each loop 
+    content = content.replace("{{title}}", title)
     writing_output(output,content)#writes to output file destination
-    print(2)
+    print('apply template ran')
 
 
 
 def writing_output(output, content):
     open(output, 'w+').write(content)
-    print(4)
+    print('output ran')
 
 def main():
     for page in pages:
         apply_template(page)#goes through for loop to apply the template from info gathered through pages list
-        print(5)
+        print('main ran')
 
 main()
 
