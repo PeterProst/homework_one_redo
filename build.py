@@ -7,15 +7,17 @@ pages = []
 def auto_generate_content():
     all_html_files = glob.glob("content/*.html")
     for html_file in all_html_files:
+        print(html_file, '-------prints html file')
         file_name = os.path.basename(html_file)
-        output = "docs/" + file_name
         name_only, extension = os.path.splitext(file_name)
+        output = 'docs/' + file_name    
         pages.append({
-            "filename" : html_file,
+            "filename" : file_name,
             "title" : name_only,
             "output" : output,
+            "file_path" : html_file
         })
-        
+        print(pages)
  
 
 auto_generate_content()
@@ -35,14 +37,19 @@ def apply_template(page):
     file_name = page["filename"]
     output = page["output"]
     page_title = page["title"]
+    file_path = page['file_path']
+    print(file_path, 'this is the file path----')
     template = Template(template_html()) #template (top/bottom) read and put into template var
-    index_html = open(file_name).read() #opens the content files: about/experience/contact and puts into var
+    content_html = open(file_path).read() #opens the content files: about/experience/contact and puts into var
     content = template.render(
-        title = page_title,
-        content = index_html,
+        pages = pages,
+        content = content_html,
     ) #does the actual replacement for each of the above on each loop 
-    # content = content.replace("{{title}}", page_title)#updates content to include the dynamic title 
-    writing_output(output,content)#writes to output file destination
+    # content1 = template.render(
+    #     pages=pages, 
+    #      title= page_title,
+    #     )#updates content to include the dynamic title 
+    writing_output(output, content)#writes to output file destination
     print('apply template ran')
 
 
