@@ -8,8 +8,8 @@
   <meta name="Here's my homepage that I've been working on. Enjoy!" content="">
   <meta name="Peter Fitch" content="">
 
-  <title>{{top_page_title}}</title>
-
+  <title>{{ title }}</title>
+  
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,21 +38,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="index.html">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="experience.html">Experience</a>
-        </li>
+        </li> -->
         {% for page in pages %}  
         <li>
-          <a href="{{ page.filename }}">{{ page.title }}</a>
+          <a class="new_nav_link" href="{{ page.filename }}">{{ page.title }}</a>
         </li>
         {% endfor %}
         
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="contact.html">Contact</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
